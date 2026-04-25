@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Academic Portfolio — Seatworks, Quizzes, Activities & Exams" />
+  <title>Academic Portfolio</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/works.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot"  aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       STICKY NAVBAR
+  ═════════════════════════════════════════════════════════ -->
+  <header class="navbar" id="navbar" role="banner">
+    <div class="navbar__inner">
+
+      <!-- Logo / Brand -->
+      <a class="navbar__logo" href="#student-info" aria-label="Go to top">
+        <span class="navbar__logo-mark" aria-hidden="true">◈</span>
+        <span class="navbar__logo-text">Kiel Maverick G.</span>
+      </a>
+
+      <!-- Nav Links -->
+      <nav class="navbar__links" aria-label="Primary navigation">
+        <a class="nav-link" href="#student-info" data-section="student-info">Profile</a>
+        <a class="nav-link nav-link--works" href="#works" data-section="works"
+           data-tab-target="seatwork">Seatwork</a>
+        <a class="nav-link nav-link--works" href="#works" data-section="works"
+           data-tab-target="quiz">Quizzes</a>
+        <a class="nav-link nav-link--works" href="#works" data-section="works"
+           data-tab-target="activity">Activities</a>
+        <a class="nav-link nav-link--works" href="#works" data-section="works"
+           data-tab-target="exam">Exams</a>
+        <a class="nav-link" href="#contact" data-section="contact">Contact</a>
+      </nav>
+
+      <!-- Mobile hamburger -->
+      <button class="navbar__burger" id="nav-burger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar__drawer" id="nav-drawer" aria-hidden="true">
+      <a class="drawer-link" href="#student-info">Profile</a>
+      <a class="drawer-link" href="#works" data-tab-target="seatwork">Seatwork</a>
+      <a class="drawer-link" href="#works" data-tab-target="quiz">Quizzes</a>
+      <a class="drawer-link" href="#works" data-tab-target="activity">Activities</a>
+      <a class="drawer-link" href="#works" data-tab-target="exam">Exams</a>
+      <a class="drawer-link" href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- ════════════════════════════════════════════════════════
+       SECTION A — STUDENT INFORMATION
+  ═════════════════════════════════════════════════════════ -->
+  <section class="hero" id="student-info" aria-label="Student Information">
+
+    <!-- Ambient orbs -->
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="orb orb-2" aria-hidden="true"></div>
+    <div class="orb orb-3" aria-hidden="true"></div>
+
+    <div class="hero__inner">
+
+      <!-- ── LEFT: Avatar + Contacts ── -->
+      <aside class="hero__left">
+
+        <!-- Avatar -->
+        <div class="avatar-wrap" aria-label="Student Photo">
+          <div class="avatar-ring"   aria-hidden="true"></div>
+          <div class="avatar-ring-2" aria-hidden="true"></div>
+          <!-- Replace .avatar-placeholder with <img> when you have a photo -->
+          <img class="avatar-img" src="{css,js,assets/Kiel_OOP.png" alt="Kiel Sumayang" />
+        </div>
+
+        <!-- Contact Card -->
+        <div class="contact-card reveal">
+          <p class="contact-title">Contact Information</p>
+          <ul class="contact-list" aria-label="Contact details">
+            <li class="contact-item">
+              <span><strong>Email</strong><br>kielmaverick@gmail.com</span>
+            </li>
+            <li class="contact-item">
+              <span><strong>Phone</strong><br>+63 969 286 2066</span>
+            </li>
+            <li class="contact-item">
+              <span><strong>Subject</strong><br>Information Management</span>
+            </li>
+            <li class="contact-item">
+              <span><strong>Section</strong><br>BSIT 2 — 2N</span>
+            </li>
+            <li class="contact-item">
+              <span><strong>Academic Year</strong><br>2024–2028, 2nd Semester</span>
+            </li>
+          </ul>
+        </div>
+
+      </aside>
+
+      <!-- ── CENTER: Name + Bio ── -->
+      <div class="hero__center">
+
+        <p class="hero__eyebrow" aria-hidden="true">Object Oriented Programming E-Portfolio</p>
+
+        <h1 class="hero__name">
+          <span class="name-line">Kiel Maverick G.</span>
+          <span class="name-highlight">Sumayang</span>
+        </h1>
+
+        <p class="hero__role">
+          <span class="role-dot" aria-hidden="true"></span>
+          BS Information Technology &nbsp;·&nbsp; 2nd Year Student
+        </p>
+
+        <div class="hero__divider" aria-hidden="true"></div>
+
+        <p class="hero__bio">
+          This portfolio was created to <strong>document and reflect</strong> on the academic work I have
+          accomplished throughout the semester. It serves as a transparent record of my growth —
+          capturing every seatwork, quiz, activity, and exam, each paired with a personal reflection
+          on what I learned and how I can improve.
+          <br><br>
+          Beyond academic compliance, this is a commitment to <strong>intentional learning</strong> —
+          acknowledging both progress and gaps, and using every output as a stepping stone toward
+          professional competence.
+        </p>
+
+        <!-- Stats -->
+        <div class="hero__stats reveal" aria-label="Work statistics">
+
+          <div class="stat-pill reveal reveal-delay-1">
+            <div>
+              <div class="stat-number" id="total-count">13</div>
+              <div class="stat-label">Total<br>Works</div>
+            </div>
+          </div>
+
+          <div class="stat-pill reveal reveal-delay-2">
+            <div>
+              <div class="stat-number">4</div>
+              <div class="stat-label">Categories<br>Covered</div>
+            </div>
+          </div>
+
+          <div class="stat-pill reveal reveal-delay-3">
+            <div>
+              <div class="stat-number">1</div>
+              <div class="stat-label">Term<br>Completed</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /.hero__inner -->
+
+    <!-- Scroll hint -->
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll to Works</span>
+      <div class="scroll-arrow"></div>
+    </div>
+
+  </section><!-- /#student-info -->
+
+
+  <!-- ════════════════════════════════════════════════════════
+       SECTION B — WORKS: COUNTERS + TABS + CARDS
+  ═════════════════════════════════════════════════════════ -->
+  <main class="works-section" id="works" aria-label="Academic Works">
+    <div class="works-inner">
+
+      <!-- Section Header -->
+      <header class="section-header reveal">
+        <p class="section-eyebrow">Academic Outputs</p>
+        <h2 class="section-title">Works &amp; Reflections</h2>
+      </header>
+
+      <!-- ── Counter Cubes ── -->
+      <div class="counters-grid" role="list" aria-label="Work counts by category">
+
+        <div class="counter-cube c-seatwork reveal reveal-delay-1" role="listitem">
+          <span class="counter-icon" aria-hidden="true">📋</span>
+          <span class="counter-num" data-target="2" aria-label="2 seatworks">0</span>
+          <span class="counter-label">Seatworks</span>
+        </div>
+
+        <div class="counter-cube c-quiz reveal reveal-delay-2" role="listitem">
+          <span class="counter-icon" aria-hidden="true">📝</span>
+          <span class="counter-num" data-target="2" aria-label="2 quizzes">0</span>
+          <span class="counter-label">Quizzes</span>
+        </div>
+
+        <div class="counter-cube c-activity reveal reveal-delay-3" role="listitem">
+          <span class="counter-icon" aria-hidden="true">🗂️</span>
+          <span class="counter-num" data-target="8" aria-label="8 activities">0</span>
+          <span class="counter-label">Activities</span>
+        </div>
+
+        <div class="counter-cube c-exam reveal reveal-delay-4" role="listitem">
+          <span class="counter-icon" aria-hidden="true">📄</span>
+          <span class="counter-num" data-target="1" aria-label="1 exam">0</span>
+          <span class="counter-label">Exams</span>
+        </div>
+
+      </div><!-- /.counters-grid -->
+
+      <!-- ── Tab Buttons ── -->
+      <nav class="tabs-bar reveal" role="tablist" aria-label="Work categories">
+
+        <button class="tab-btn" data-tab="seatwork"
+                role="tab" aria-selected="false" aria-controls="panel-seatwork">
+          Seatwork
+          <span class="tab-count-badge" aria-hidden="true">2</span>
+        </button>
+
+        <button class="tab-btn" data-tab="quiz"
+                role="tab" aria-selected="false" aria-controls="panel-quiz">
+          Quizzes
+          <span class="tab-count-badge" aria-hidden="true">2</span>
+        </button>
+
+        <button class="tab-btn" data-tab="activity"
+                role="tab" aria-selected="false" aria-controls="panel-activity">
+          Activities
+          <span class="tab-count-badge" aria-hidden="true">8</span>
+        </button>
+
+        <button class="tab-btn" data-tab="exam"
+                role="tab" aria-selected="false" aria-controls="panel-exam">
+          Exams
+          <span class="tab-count-badge" aria-hidden="true">1</span>
+        </button>
+
+      </nav>
+
+      <!-- ── Work Cards Grid ── -->
+      <div id="works-grid" aria-live="polite">
+
+        <div class="category-panel" data-category="seatwork"
+             id="panel-seatwork" role="tabpanel" aria-hidden="true">
+        </div>
+
+        <div class="category-panel" data-category="quiz"
+             id="panel-quiz" role="tabpanel" aria-hidden="true">
+        </div>
+
+        <div class="category-panel" data-category="activity"
+             id="panel-activity" role="tabpanel" aria-hidden="true">
+        </div>
+
+        <div class="category-panel" data-category="exam"
+             id="panel-exam" role="tabpanel" aria-hidden="true">
+        </div>
+
+      </div><!-- /#works-grid -->
+
+    </div><!-- /.works-inner -->
+  </main>
+
+
+  <!-- ════════════════════════════════════════════════════════
+       FOOTER
+  ═════════════════════════════════════════════════════════ -->
+  <footer id="contact" aria-label="Footer and contact information">
+
+    <div class="footer-inner">
+
+      <!-- Brand -->
+      <div class="footer-brand reveal">
+        <div class="footer-logo">Kiel Maverick G.</div>
+        <p class="footer-tagline">
+          Object Oriented Programming E-Portfolio · BSIT 2rd Year<br>
+          Information Management 
+        </p>
+      </div>
+
+      <!-- Connect -->
+      <div class="reveal reveal-delay-1">
+        <p class="footer-col-title">Connect</p>
+        <ul class="footer-links">
+          <li>
+            <a class="footer-link" href="https://github.com/mave-o" target="_blank" rel="noopener noreferrer"
+               aria-label="GitHub profile">
+              <span class="footer-link-icon" aria-hidden="true">⌥</span>
+              github.com/mave-o
+            </a>
+          </li>
+          <li>
+            <a class="footer-link" href="kielmaverick@gmail.com"
+               aria-label="Send email">
+              <span class="footer-link-icon" aria-hidden="true">✉</span>
+              kielmaverick@gmail.com
+            </a>
+          </li>
+          <li>
+            <a class="footer-link" href="tel:+639692862066"
+               aria-label="Call phone number">
+              <span class="footer-link-icon" aria-hidden="true">☎</span>
+              +63 969 286 2066
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="reveal reveal-delay-2">
+        <p class="footer-col-title">Quick Nav</p>
+        <ul class="footer-links">
+          <li>
+            <a class="footer-link" href="#student-info">
+              <span class="footer-link-icon" aria-hidden="true">◈</span>
+              Student Profile
+            </a>
+          </li>
+          <li>
+            <a class="footer-link" href="#works" onclick="setTimeout(()=>document.querySelector('[data-tab=seatwork]').click(),100)">
+              <span class="footer-link-icon" aria-hidden="true">◈</span>
+              Seatworks
+            </a>
+          </li>
+          <li>
+            <a class="footer-link" href="#works" onclick="setTimeout(()=>document.querySelector('[data-tab=quiz]').click(),100)">
+              <span class="footer-link-icon" aria-hidden="true">◈</span>
+              Quizzes
+            </a>
+          </li>
+          <li>
+            <a class="footer-link" href="#works" onclick="setTimeout(()=>document.querySelector('[data-tab=activity]').click(),100)">
+              <span class="footer-link-icon" aria-hidden="true">◈</span>
+              Activities
+            </a>
+          </li>
+          <li>
+            <a class="footer-link" href="#works" onclick="setTimeout(()=>document.querySelector('[data-tab=exam]').click(),100)">
+              <span class="footer-link-icon" aria-hidden="true">◈</span>
+              Exams
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div><!-- /.footer-inner -->
+
+    <div class="footer-bottom">
+      <p class="footer-copy">
+        &copy; 2024–2028 Kiel Maverick G. Sumayang &nbsp;·&nbsp;
+        Made with <span>♥</span> for academic documentation.
+      </p>
+      <div class="footer-badges">
+        <span class="footer-badge">HTML</span>
+        <span class="footer-badge">CSS</span>
+        <span class="footer-badge">JS</span>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Script -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>

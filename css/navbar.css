@@ -1,0 +1,239 @@
+/* ============================================================
+   STICKY NAVBAR
+   ============================================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 60px;
+
+  /* Glass morphism base — becomes more opaque on scroll (JS adds .scrolled) */
+  background: rgba(8, 11, 15, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+
+  transition:
+    background var(--t-mid) ease,
+    border-color var(--t-mid) ease,
+    box-shadow var(--t-mid) ease;
+}
+
+/* When user scrolls down even 10px */
+.navbar.scrolled {
+  background: rgba(8, 11, 15, 0.92);
+  border-bottom-color: var(--black-border);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Entry animation */
+.navbar {
+  animation: navDrop 0.7s var(--ease-out) 0.2s both;
+}
+@keyframes navDrop {
+  from { opacity: 0; transform: translateY(-100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Inner layout ── */
+.navbar__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.2rem, 4vw, 5rem);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-lg);
+}
+
+/* ── Logo ── */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar__logo-mark {
+  font-size: 1.1rem;
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  transition: transform var(--t-mid) var(--ease-out);
+}
+.navbar__logo:hover .navbar__logo-mark {
+  transform: rotate(90deg);
+}
+
+.navbar__logo-text {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  transition: color var(--t-fast) ease;
+}
+.navbar__logo:hover .navbar__logo-text {
+  color: var(--green);
+}
+
+/* ── Desktop Nav Links ── */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--white-muted);
+  padding: 6px 12px;
+  border-radius: var(--r-full);
+  border: 1px solid transparent;
+  transition:
+    color var(--t-fast) ease,
+    background var(--t-fast) ease,
+    border-color var(--t-fast) ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--white);
+  background: rgba(255,255,255,0.04);
+}
+
+/* Active nav link (set by JS on scroll) */
+.nav-link.active {
+  color: var(--green);
+  background: var(--green-subtle);
+  border-color: rgba(0, 255, 135, 0.18);
+}
+
+/* Works category links get purple tint when active */
+.nav-link--works.active {
+  color: var(--purple);
+  background: var(--purple-subtle);
+  border-color: rgba(168, 85, 247, 0.18);
+}
+
+/* Tiny indicator dot under active link */
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--green);
+}
+.nav-link--works.active::after {
+  background: var(--purple);
+}
+
+/* ── Hamburger (mobile) ── */
+.navbar__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--black-border);
+  background: var(--grad-card);
+  transition: border-color var(--t-fast) ease;
+  flex-shrink: 0;
+}
+
+.navbar__burger:hover {
+  border-color: rgba(0,255,135,0.3);
+}
+
+.navbar__burger span {
+  display: block;
+  height: 1.5px;
+  background: var(--white-dim);
+  border-radius: 2px;
+  transition: transform var(--t-mid) var(--ease-out), opacity var(--t-mid) ease, background var(--t-fast) ease;
+  transform-origin: center;
+}
+.navbar__burger:hover span { background: var(--green); }
+
+/* Burger → X when open */
+.navbar__burger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.navbar__burger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.navbar__burger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ── Mobile Drawer ── */
+.navbar__drawer {
+  display: none; /* shown only on mobile */
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--gap-sm) clamp(1.2rem, 4vw, 5rem) var(--gap-md);
+  background: rgba(8, 11, 15, 0.97);
+  border-top: 1px solid var(--black-border);
+
+  /* Slide-down animation */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s var(--ease-out), padding 0.3s ease;
+}
+
+.navbar__drawer.open {
+  max-height: 400px;
+  padding-top: var(--gap-md);
+  padding-bottom: var(--gap-lg);
+}
+
+.drawer-link {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--white-dim);
+  padding: 10px 14px;
+  border-radius: var(--r-md);
+  border: 1px solid transparent;
+  transition: color var(--t-fast) ease, background var(--t-fast) ease, border-color var(--t-fast) ease;
+}
+
+.drawer-link:hover,
+.drawer-link:focus {
+  color: var(--green);
+  background: var(--green-subtle);
+  border-color: rgba(0,255,135,0.15);
+}
+
+/* ── Offset body so content isn't under navbar ── */
+body {
+  padding-top: 60px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 760px) {
+  .navbar__links  { display: none; }
+  .navbar__burger { display: flex; }
+  .navbar__drawer { display: flex; }
+  .navbar { height: auto; }
+  .navbar__inner { height: 60px; }
+}
